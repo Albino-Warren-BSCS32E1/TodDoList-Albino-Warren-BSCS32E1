@@ -1,4 +1,5 @@
-﻿using Todolist.Models;
+﻿using TodoList.Domain;
+using Todolist.Models;
 using TodoList.Domain.Interface;
 
 namespace Todolist.Repositories
@@ -13,6 +14,11 @@ namespace Todolist.Repositories
         public ToDo Add(ToDo toDo)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await _context.SaveChangesAsync(cancellationToken);
         }
 
         public IEnumerable<ToDo> GetAll()
